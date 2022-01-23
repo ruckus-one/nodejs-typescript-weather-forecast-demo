@@ -42,6 +42,8 @@ To accomodate Jest unit testing with Typescript some babel plugins & presets wer
 **Example response**
 `{"data":[{"country":"AT","name":"Ybbs an der Donau","lat":"48.16667","lng":"15.08333","forecast_url":"http://127.0.0.1:3000/weather-forecast/open-weather-dummy/48.16667/15.08333"}]}`
 
+Note: dummy adapters return static data & are also used in unit tests.
+
 ### List data providers
 - `GET /weather-forecast/providers `
 *returns a list of currently supported weather data APIs*
