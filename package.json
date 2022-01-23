@@ -2,6 +2,8 @@
   "scripts": {
     "compile": "tsc",
     "test": "jest --no-cache",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint:fix": "tslint -c tslint.json 'src/**/*.ts' --fix",
     "dev": "ts-node-dev --pretty --respawn --transpile-only src/index.ts"
   },
   "dependencies": {
@@ -26,6 +28,7 @@
     "babel-jest": "^27.4.6",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "jest": "^27.4.7",
-    "ts-node-dev": "^1.1.8"
+    "ts-node-dev": "^1.1.8",
+    "tslint": "^6.1.3"
   }
 }
