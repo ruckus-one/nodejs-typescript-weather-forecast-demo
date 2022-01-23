@@ -5,8 +5,8 @@ import Places from '../interfaces/Places';
 @injectable()
 export default class PlacesService implements Places {
     public listCities(page?: number, limit?: number): object[] {
-        if ((page === undefined || page < 0) &&
-            (limit === undefined || limit < 1)) {
+        if ((!page || page < 0) &&
+            (!limit || limit < 1)) {
                 return (cities as Array<object>).splice(0, 10)
         }
 
