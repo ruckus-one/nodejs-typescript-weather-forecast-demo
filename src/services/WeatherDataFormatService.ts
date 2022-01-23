@@ -6,10 +6,10 @@ import WeatherSummaryData from "../interfaces/WeatherSummaryData"
 @injectable()
 export default class WeatherDataFormatService implements WeatherDataFormatter {
     stringifyDailyWeather(dayData: WeatherSummaryData): string {
-        let description = new Array<string>()
+        const description = new Array<string>()
 
         if (dayData.avgTemperature !== null) {
-            let avgTemperature = Number(dayData.avgTemperature.toFixed(1))
+            const avgTemperature = Number(dayData.avgTemperature.toFixed(1))
             description.push(`avg. temperature of ${avgTemperature} °C`)
         }
 

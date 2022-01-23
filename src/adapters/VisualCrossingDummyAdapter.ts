@@ -5,18 +5,18 @@ import WeatherSummaryData from '../interfaces/WeatherSummaryData'
 import Coordinates from '../types/Coordinates'
 
 export default class VisualCrossingDummyAdapter implements WeatherDataAdapter {
-    getWeatherData(coords: Coordinates): Promise<Array<WeatherSummaryData>> {
+    getWeatherData(coords: Coordinates): Promise<WeatherSummaryData[]> {
         const content = fs.readFileSync(path.join(__dirname, '../../test/dummy-data/visual-crossing-dummy.json'))
         let data = JSON.parse(content.toString())
         data = data['locations']
         const keys = Object.keys(data)
         data =  data[keys[0]]['values']
 
-        let array = new Array<WeatherSummaryData>()
+        const array = new Array<WeatherSummaryData>()
         for (let i=0; i<data.length; i++) {
             const dayData = data[i]
 
-            let item : WeatherSummaryData = {
+            const item : WeatherSummaryData = {
                 avgTemperature: null,
                 pressure: null,
                 humidity: null,
@@ -28,19 +28,19 @@ export default class VisualCrossingDummyAdapter implements WeatherDataAdapter {
             if (dayData.hasOwnProperty('temp') && typeof dayData['temp'] === 'number') {
                 item.avgTemperature = dayData['temp']
             }
-    
+
             if (dayData.hasOwnProperty('sealevelpressure') && typeof dayData['sealevelpressure'] === 'number') {
                 item.pressure = dayData['sealevelpressure']
             }
-    
+
             if (dayData.hasOwnProperty('precip') && typeof dayData['precip'] === 'number') {
                 item.precipitation = dayData['precip']
             }
-    
+
             if (dayData.hasOwnProperty('humidity') && typeof dayData['humidity'] === 'number') {
                 item.humidity = dayData['humidity']
             }
-    
+
             if (dayData.hasOwnProperty('conditions') && typeof dayData['conditions'] === 'string') {
                 item.description = dayData['conditions']
             }

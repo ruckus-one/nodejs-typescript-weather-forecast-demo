@@ -6,16 +6,16 @@ import UtilsService from '../services/UtilsService'
 import Coordinates from '../types/Coordinates'
 
 export default class WeatherApiDummyAdapter implements WeatherDataAdapter {
-    getWeatherData(coords: Coordinates): Promise<Array<WeatherSummaryData>> {
+    getWeatherData(coords: Coordinates): Promise<WeatherSummaryData[]> {
         const content = fs.readFileSync(path.join(__dirname, '../../test/dummy-data/weather-api-dummy.json'))
         let data = JSON.parse(content.toString())
         data = data['data']
 
-        let array = new Array<WeatherSummaryData>()
+        const array = new Array<WeatherSummaryData>()
         for (let i=0; i<data.length; i++) {
             const dayData = data[i]
 
-            let item : WeatherSummaryData = {
+            const item : WeatherSummaryData = {
                 avgTemperature: null,
                 pressure: null,
                 humidity: null,
@@ -27,7 +27,7 @@ export default class WeatherApiDummyAdapter implements WeatherDataAdapter {
             if (dayData.hasOwnProperty('min_temp') && typeof dayData['min_temp'] === 'number' &&
                 dayData.hasOwnProperty('max_temp') && typeof dayData['max_temp'] === 'number') {
                 const avgTemperature = UtilsService.avg([dayData['min_temp'], dayData['max_temp']])
-                
+
                 item.avgTemperature = avgTemperature
             }
 
@@ -48,7 +48,7 @@ export default class WeatherApiDummyAdapter implements WeatherDataAdapter {
             if (dayData.hasOwnProperty('ts') && typeof dayData['ts'] === 'number') {
                 item.timestamp = dayData['ts']
             }
-            
+
             array.push(item)
         }
 

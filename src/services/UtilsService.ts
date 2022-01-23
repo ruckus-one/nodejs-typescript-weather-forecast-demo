@@ -5,7 +5,7 @@ export default class UtilsService {
         if (numbers.length === 0) {
             return 0
         }
-    
+
         return numbers.reduce((acc, n) => acc + n, 0) / numbers.length
     }
 

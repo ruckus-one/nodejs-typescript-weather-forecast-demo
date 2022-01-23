@@ -21,7 +21,7 @@ export default class WeatherForecastService implements WeatherForecast {
 
     public constructor(@inject(TYPES.WeatherDataFormatter) formatter: WeatherDataFormatService) {
         this.formatter = formatter
-        
+
         this.providers = new Map<string, WeatherDataAdapter>()
         this.providers.set('open-weather-dummy', new OpenWeatherDummyAdapter())
         this.providers.set('weather-api-dummy', new WeatherApiDummyAdapter())
@@ -39,9 +39,9 @@ export default class WeatherForecastService implements WeatherForecast {
         }
     }
 
-    public listProviders(): Array<string> {
-        let result = []
-        for (let provider of this.providers.keys()) {
+    public listProviders(): string[] {
+        const result = []
+        for (const provider of this.providers.keys()) {
             result.push(provider)
         }
 
@@ -57,7 +57,7 @@ export default class WeatherForecastService implements WeatherForecast {
         }
         const data : WeatherSummaryData[] = await this.adapter.getWeatherData(coords)
 
-        let weatherSummary: StringDictionary = {}
+        const weatherSummary: StringDictionary = {}
 
         for (let i=0; i<data.length; i++) {
             const description = this.formatter.stringifyDailyWeather(data[i])

@@ -31,7 +31,7 @@ export default class VisualCrossingAdapter implements WeatherDataAdapter {
         }
     }
 
-    async getWeatherData(coords: Coordinates): Promise<Array<WeatherSummaryData>> {
+    async getWeatherData(coords: Coordinates): Promise<WeatherSummaryData[]> {
 
         this.options.params.location = `${coords.lng},${coords.lat}`
 
@@ -41,17 +41,17 @@ export default class VisualCrossingAdapter implements WeatherDataAdapter {
         } catch (error) {
             return Promise.reject([])
         }
-        
+
         data = data['data']['locations']
 
         const keys = Object.keys(data)
         data =  data[keys[0]]['values']
 
-        let array = new Array<WeatherSummaryData>()
+        const array = new Array<WeatherSummaryData>()
         for (let i=0; i<data.length; i++) {
             const dayData = data[i]
 
-            let item : WeatherSummaryData = {
+            const item : WeatherSummaryData = {
                 avgTemperature: null,
                 pressure: null,
                 humidity: null,
@@ -63,19 +63,19 @@ export default class VisualCrossingAdapter implements WeatherDataAdapter {
             if (dayData.hasOwnProperty('temp') && typeof dayData['temp'] === 'number') {
                 item.avgTemperature = dayData['temp']
             }
-    
+
             if (dayData.hasOwnProperty('sealevelpressure') && typeof dayData['sealevelpressure'] === 'number') {
                 item.pressure = dayData['sealevelpressure']
             }
-    
+
             if (dayData.hasOwnProperty('precip') && typeof dayData['precip'] === 'number') {
                 item.precipitation = dayData['precip']
             }
-    
+
             if (dayData.hasOwnProperty('humidity') && typeof dayData['humidity'] === 'number') {
                 item.humidity = dayData['humidity']
             }
-    
+
             if (dayData.hasOwnProperty('conditions') && typeof dayData['conditions'] === 'string') {
                 item.description = dayData['conditions']
             }

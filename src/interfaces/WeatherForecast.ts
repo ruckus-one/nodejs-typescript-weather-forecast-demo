@@ -3,6 +3,6 @@ import StringDictionary from "../types/StringDictionary";
 
 export default interface WeatherForecast {
     setProvider(provider: string): void
-    listProviders(): Array<string>
+    listProviders(): string[]
     getDailyAtLocation(coords: Coordinates): Promise<StringDictionary>
 }

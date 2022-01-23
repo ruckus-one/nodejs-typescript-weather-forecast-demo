@@ -7,7 +7,7 @@ import WeatherDataFormatter from "./interfaces/WeatherDataFormatter"
 import PlacesService from "./services/PlacesService"
 import Places from "./interfaces/Places"
 
-var container = new Container()
+const container = new Container()
 container.bind<WeatherForecast>(TYPES.WeatherForecast).to(WeatherForecastService)
 container.bind<WeatherDataFormatter>(TYPES.WeatherDataFormatter).to(WeatherDataFormatService)
 container.bind<Places>(TYPES.Places).to(PlacesService)

@@ -1,4 +1,4 @@
-let TYPES = {
+const TYPES = {
     WeatherForecast: Symbol('WeatherForecast'),
     Places: Symbol('Places'),
     WeatherDataFormatter: Symbol('WeatherDataFormatter'),

@@ -46,11 +46,11 @@ export default class OpenWeatherAdapter implements WeatherDataAdapter {
 
         data = data['data']['list']
 
-        let array = new Array<WeatherSummaryData>()
+        const array = new Array<WeatherSummaryData>()
         for (let i=0; i<data.length; i++) {
             const dayData = data[i]
 
-            let item : WeatherSummaryData = {
+            const item : WeatherSummaryData = {
                 avgTemperature: null,
                 pressure: null,
                 humidity: null,
