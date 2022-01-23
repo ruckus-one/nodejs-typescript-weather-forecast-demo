@@ -1,0 +1,7 @@
+process.env.DEFAULT_ADAPTER = 'weather-api-dummy'
+process.env.WEATHER_API_ADAPTER_HOST = 'foo-bar'
+process.env.WEATHER_API_ADAPTER_KEY = 'foo-bar'
+process.env.VISUAL_CROSSING_ADAPTER_HOST = 'foo-bar'
+process.env.VISUAL_CROSSING_ADAPTER_KEY = 'foo-bar'
+process.env.OPEN_WEATHER_ADAPTER_HOST = 'foo-bar'
+process.env.OPEN_WEATHER_ADAPTER_KEY = 'foo-bar'
