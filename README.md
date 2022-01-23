@@ -32,6 +32,12 @@ Usage of Inversify and the services patterns allows easy adaptation of the micro
 To accomodate Jest unit testing with Typescript some babel plugins & presets were used.
 
 ## RESTful API summary
+
+### Popular errors
+- ERR_MISSING_CONFIG - .env file invalid or incomplete
+- ERR_INVALID_PROVIDER - used a non-registered data provider or none configured
+- ERR_LOCATION_NOT_SPECIFIED - lat/lng pair invalid or not provided
+
 ### List places
 - `GET /places `
 *returns a list of popular cities around the world, together with the gps coordinates and internal weather forecast URL*
