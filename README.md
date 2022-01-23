@@ -14,6 +14,7 @@ See `.env.example` for details on what's required before running the application
 `npm run test` runs test suites using Jest (+ babel for typescript)
 `npm run compile` compiles the app using **tsc** into the ./dist folder
 `npm run dev` spins up a node dev server to test the API locally (likely to be 127.0.0.1:3000)
+`npm run lint` runs recommended tslint (lint:fix to make changes)
 
 ## Architecture summary
 
