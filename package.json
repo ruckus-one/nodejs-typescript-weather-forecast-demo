@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "lint": "eslint src --ext ts",
     "compile": "tsc",
     "test": "jest --no-cache",
     "dev": "ts-node-dev --pretty --respawn --transpile-only src/index.ts"
@@ -26,10 +25,7 @@
     "@types/node": "^17.0.10",
     "babel-jest": "^27.4.6",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
-    "eslint": "^8.7.0",
-    "eslint-config-airbnb": "^19.0.4",
     "jest": "^27.4.7",
-    "ts-node-dev": "^1.1.8",
-    "typescript-eslint-parser": "^22.0.0"
+    "ts-node-dev": "^1.1.8"
   }
 }
